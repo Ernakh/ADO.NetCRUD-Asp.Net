@@ -74,5 +74,12 @@ namespace AspNetAspxCRUD
                 lblAlterou.Text = "Erro ao alterar!";
             }
         }
+
+        protected void btnDataReader_Click(object sender, EventArgs e)
+        {
+            Pessoa p = new Pessoa();
+            p = p.retornaPessoa(1);
+            lblDataReader.Text = p.nome;
+        }
     }
 }

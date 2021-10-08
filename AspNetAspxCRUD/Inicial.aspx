@@ -31,6 +31,8 @@
                 <legend>Consultar:</legend>
                 <asp:GridView ID="GridView1" runat="server"></asp:GridView>
                 <asp:Button ID="btnConsultar" runat="server" Text="Consultar" OnClick="btnConsultar_Click" />
+                <asp:Button ID="btnDataReader" runat="server" Text="Consultar DataReader" OnClick="btnDataReader_Click" />
+                <asp:Label ID="lblDataReader" runat="server" Text=""></asp:Label>
             </fieldset>
         </div>
 

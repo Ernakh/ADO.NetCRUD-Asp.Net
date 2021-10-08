@@ -125,5 +125,43 @@ namespace AspNetAspxCRUD
                 bd.fecharconexao();
             }
         }
+
+        public Pessoa retornaPessoa(int id)
+        {
+            Banco bd = new Banco();
+
+            try
+            {
+                SqlConnection cn = bd.abrirconexao();
+                SqlDataReader rdr = null;
+
+                SqlCommand sqlComm = new SqlCommand("select * from pessoas", cn);
+                
+                rdr = sqlComm.ExecuteReader();
+
+                while (rdr.Read())
+                {
+                    if(rdr.GetInt32(0) == id)
+                    {
+                        id = 1;
+                        nome = rdr.GetString(1);
+                        idade = rdr.GetInt32(2);
+                        altura = rdr.GetInt32(3);
+
+                        return this;
+                    }
+                }
+
+                return null;
+            }
+            catch (Exception e)
+            {
+                return null;
+            }
+            finally
+            {
+                bd.fecharconexao();
+            }
+        }
     }
 }
